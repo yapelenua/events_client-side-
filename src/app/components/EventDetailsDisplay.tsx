@@ -5,10 +5,10 @@ import { IEvent } from '../types/types.store';
 interface EventDetailsDisplayProps {
   event: IEvent;
   handleEditClick: () => void;
-  handleDelete: (id: string) => Promise<void>;
+  handleOpen?: () => void;
 }
 
-const EventDetailsDisplay: React.FC<EventDetailsDisplayProps> = ({ event, handleEditClick, handleDelete }) => {
+const EventDetailsDisplay: React.FC<EventDetailsDisplayProps> = ({ event, handleEditClick, handleOpen }) => {
   return (
     <div className="p-4 bg-white shadow-md rounded-md">
       <Typography variant="h2" gutterBottom className="font-bold mb-2">{event.title}</Typography>
@@ -29,11 +29,9 @@ const EventDetailsDisplay: React.FC<EventDetailsDisplayProps> = ({ event, handle
         <Button variant="contained" onClick={handleEditClick} className="mr-2">
           Edit
         </Button>
-        <Link href={`/`}>
-          <Button variant="contained" onClick={() => handleDelete(String(event.id))} className="bg-red-500 hover:bg-red-600">
-            Delete
-          </Button>
-        </Link>
+        <Button variant="contained" onClick={handleOpen} className="bg-red-500 hover:bg-red-600">
+          Delete
+        </Button>
       </div>
     </div>
   );
