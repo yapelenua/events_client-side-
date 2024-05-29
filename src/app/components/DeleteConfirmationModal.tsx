@@ -1,4 +1,5 @@
-import { Link } from '@mui/material';
+
+import Link from 'next/link';
 import { useState, ChangeEvent } from 'react';
 import Modal from 'react-modal';
 
